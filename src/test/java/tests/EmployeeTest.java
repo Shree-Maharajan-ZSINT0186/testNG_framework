@@ -83,7 +83,6 @@ public class EmployeeTest extends TestBase {
         );
 
         String actualError = addEmployeePage.getValidationErrorMessage();
-        System.out.println(actualError);
         Assert.assertTrue(actualError.contains(data.get("expectedError")));
     }
 
@@ -106,12 +105,10 @@ public class EmployeeTest extends TestBase {
         String expectedFileName = "importData.csv";
         PIMPage pimPage=new PIMPage(driver);
         pimPage.SelectDropDown();
-        System.out.println("before");
         dataImport=new DataImport(driver);
         dataImport.downloadFile();
         new WebDriverWait(driver, Duration.ofSeconds(30));
         boolean fileDownloaded = isFileDownloaded(DriverFactory.DOWNLOAD_DIR, expectedFileName);
-        System.out.println(fileDownloaded);
         Assert.assertTrue(fileDownloaded, "File was not downloaded successfully.");
     }
 
