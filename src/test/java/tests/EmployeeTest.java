@@ -2,6 +2,7 @@ package tests;
 
 import io.qameta.allure.Feature;
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -65,7 +66,9 @@ public class EmployeeTest extends TestBase {
         String ConfirmPassword=employee.get("confirmPassword");
 
         addEmployeePage.addEmployeeWithLogin(firstName,middleName,lastName,userName,password,ConfirmPassword);
-        Assert.assertTrue(addEmployeePage.getSuccessMessage().contains("Success"));
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.urlContains("/viewPersonalDetails/empNumber"));
+        Assert.assertTrue(driver.getCurrentUrl().contains("/viewPersonalDetails/empNumber"));
     }
 
     @Test(dataProvider = "invalidLoginCredentials", dataProviderClass = utils.TestData.class)

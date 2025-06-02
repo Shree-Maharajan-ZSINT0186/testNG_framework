@@ -29,8 +29,8 @@ public class AddEmployeePage extends ElementUtils {
     @FindBy(xpath = "//button[@type='submit']")
     private WebElement saveButton;
 
-    @FindBy(css = ".oxd-toast--success .oxd-toast-content--success .oxd-toast-content-text")
-    private WebElement successMessageElement;
+//    @FindBy(css = ".oxd-toast--success .oxd-toast-content--success .oxd-toast-content-text")
+//    private WebElement successMessageElement;
 
     @FindBy(xpath = "//span[text()='Required']")
     private List<WebElement> requiredFieldMessages;
