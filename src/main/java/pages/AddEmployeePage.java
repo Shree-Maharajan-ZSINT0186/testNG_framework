@@ -112,7 +112,6 @@ public class AddEmployeePage extends ElementUtils {
             }
         } catch (Exception ignored) {}
 
-        // Remove last ' | ' if present
         String result = errorMessages.toString().trim();
         if (result.endsWith("|")) {
             result = result.substring(0, result.length() - 1).trim();

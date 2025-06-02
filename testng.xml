@@ -1,4 +1,7 @@
-<suite name="FullTestSuite" parallel="tests" thread-count="2">
+<suite name="FullTestSuite" parallel="tests" thread-count="3">
+    <listeners>
+        <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
+    </listeners>
     <parameter name="browser" value="chrome" />
 
     <test name="LoginTest">
@@ -10,6 +13,12 @@
     <test name="EmployeeTest">
         <classes>
             <class name="tests.EmployeeTest" />
+        </classes>
+    </test>
+
+    <test name="modelTest">
+        <classes>
+            <class name="tests.ModelsTest" />
         </classes>
     </test>
 </suite>

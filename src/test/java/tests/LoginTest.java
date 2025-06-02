@@ -1,5 +1,6 @@
 package tests;
 
+import io.qameta.allure.Feature;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -9,7 +10,7 @@ import pages.LoginPage;
 import testbase.TestBase;
 
 import java.time.Duration;
-
+@Feature("Login Functionality")
 public class LoginTest extends TestBase {
     public LoginPage loginPage;
     @Test(description = "login with valid credential")

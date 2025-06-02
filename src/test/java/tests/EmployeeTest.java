@@ -1,5 +1,6 @@
 package tests;
 
+import io.qameta.allure.Feature;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -16,7 +17,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
 import java.util.Map;
-
+@Feature("Employee details Functionality")
 public class EmployeeTest extends TestBase {
     AddEmployeePage addEmployeePage;
     DataImport dataImport;
