@@ -40,7 +40,9 @@ public class EmployeeTest extends TestBase {
         String middleName = employee.get("middlename");
         String lastName = employee.get("lastname");
         addEmployeePage.addEmployee(firstName,middleName,lastName);
-        Assert.assertTrue(addEmployeePage.getSuccessMessage().contains("Success"));
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.urlContains("/viewPersonalDetails/empNumber"));
+        Assert.assertTrue(driver.getCurrentUrl().contains("/viewPersonalDetails/empNumber"));
     }
     @Test(description = "add Empty employee details without login credentials",dataProvider = "emptyEmployeeData",dataProviderClass = utils.TestData.class)
     public void addEmptyEmployeeDetails(Map<String, String> employee){
