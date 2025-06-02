@@ -19,6 +19,7 @@ public class ElementUtils {
         usernameField.sendKeys(username);
     }
     public void clickElemet(WebElement buttonField){
+        System.out.println(("clickElemet"));
         wait.until(ExpectedConditions.visibilityOf(buttonField)).click();
     }
     public  String getMessage(WebElement errorMessage){

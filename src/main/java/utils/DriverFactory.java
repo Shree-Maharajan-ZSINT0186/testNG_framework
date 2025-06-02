@@ -15,9 +15,17 @@ public class DriverFactory {
 
     private static final ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
 
-    private static final String DOWNLOAD_DIR = System.getProperty("user.dir") + File.separator + "downloads";
+    public static final String DOWNLOAD_DIR = System.getProperty("user.dir") + File.separator + "downloads";
 
     public static WebDriver initDriver(String browserName) {
+
+        File downloadDir = new File(DOWNLOAD_DIR);
+        if (!downloadDir.exists()) {
+            boolean created = downloadDir.mkdirs();
+            if (!created) {
+                throw new RuntimeException("Failed to create download directory at: " + DOWNLOAD_DIR);
+            }
+        }
         WebDriver driver;
 
         switch (browserName.toLowerCase()) {
