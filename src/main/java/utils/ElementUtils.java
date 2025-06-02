@@ -6,6 +6,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 
 public class ElementUtils {
     private WebDriver driver;
@@ -22,6 +23,14 @@ public class ElementUtils {
     }
     public  String getMessage(WebElement errorMessage){
         return  wait.until((ExpectedConditions.visibilityOf(errorMessage))).getText();
+    }
 
+    public String getCommonRequiredErrorMessage(List<WebElement> requiredFieldMessages){
+        for (WebElement el : requiredFieldMessages) {
+            if (el.isDisplayed()) {
+                return getMessage(el);
+            }
+        }
+        return "";
     }
 }

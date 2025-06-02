@@ -44,11 +44,12 @@ public class LoginPage extends ElementUtils {
 
 
     public String getRequiredErrorMessage(){
-        for (WebElement el : requiredFieldMessages) {
-            if (el.isDisplayed()) {
-                return getMessage(el);
-            }
-        }
-        return "";
+//        for (WebElement el : requiredFieldMessages) {
+//            if (el.isDisplayed()) {
+//                return getMessage(el);
+//            }
+//        }
+//        return "";
+        return getCommonRequiredErrorMessage(requiredFieldMessages);
     }
 }
