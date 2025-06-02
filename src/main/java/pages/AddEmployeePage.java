@@ -66,9 +66,9 @@ public class AddEmployeePage extends ElementUtils {
         clickElemet(saveButton);
     }
 
-    public String getSuccessMessage(){
-        return getMessage(successMessageElement);
-    }
+//    public String getSuccessMessage(){
+////        return getMessage(successMessageElement);
+//    }
 
     public String getRequiredErrorMessage(){
        return getCommonRequiredErrorMessage(requiredFieldMessages);
